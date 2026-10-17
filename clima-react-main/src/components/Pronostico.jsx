@@ -1,4 +1,5 @@
 import { describirClima, nombreDia } from "../clima";
+import Resumen from "./Resumen";
 
 
 export default function Pronostico({ ciudad, clima }) {
@@ -18,6 +19,8 @@ export default function Pronostico({ ciudad, clima }) {
                 <span> · {describirClima(pronosticoActual.weather_code)} · viento {pronosticoActual.wind_speed_10m} km/h </span>
             </p>
 
+            <Resumen semanal={pronosticoSemanal} />
+            
             <div className="semanal">
                 {pronosticoSemanal.time.map((fecha, i) => {
                     const icono = describirClima(pronosticoSemanal.weather_code[i]).split(" ")[0];
